@@ -55,19 +55,6 @@ function playRound(playerSelection, computerSelection) {
 
 // console.log(playRound(playerSelection, computerSelection));
 
-// let score;
-// let playerScore = 0;
-// let computerScore = 0;
-// let win;
-// let lose;
-
-// if (playRound().includes('win') = true) {
-//     playerScore + 1;
-// } else if (playRound().includes('lose') = true) {
-//     computerScore = 1;
-// } 
-// score = `${playerScore}:${computerScore}`;
-// console.log(score);
 
 /*
 Write a NEW function called game().
@@ -77,11 +64,28 @@ that keeps score and reports a winner and a loser.
 
 function game() {
     for (let i = 0; i < 5; i++) {
+        playerScore = 0;
+        computerScore = 0;
         playerSelection = prompt('Rock, Paper or Scissors?').toLowerCase();
         computerSelection = getComputerChoice();
+        result = playRound(playerSelection, computerSelection);
+        if (result.includes('win')) {
+            playerScore = +1;
+        } else if (result.includes('lose')) {
+            computerScore = +1;
+        }
+        score = `${playerScore}:${computerScore}`;
         console.log(playRound(playerSelection, computerSelection));
+        console.log(score);
     }
-    
+    if (playerScore > computerScore) {
+        message = 'You win!';
+    } else if (playerScore < computerScore) {
+        message = 'You lose!';
+    } else {
+        message = "It's a tie.";
+    }
+    console.log(message);
 
 }
 game();
