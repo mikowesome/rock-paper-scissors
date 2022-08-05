@@ -63,16 +63,16 @@ that keeps score and reports a winner and a loser.
 */
 
 function game() {
+    let playerScore = 0;
+    let computerScore = 0;
     for (let i = 0; i < 5; i++) {
-        playerScore = 0;
-        computerScore = 0;
         playerSelection = prompt('Rock, Paper or Scissors?').toLowerCase();
         computerSelection = getComputerChoice();
         result = playRound(playerSelection, computerSelection);
         if (result.includes('win')) {
-            playerScore = +1;
+            playerScore = ++playerScore;
         } else if (result.includes('lose')) {
-            computerScore = +1;
+            computerScore = ++computerScore;
         }
         score = `${playerScore}:${computerScore}`;
         console.log(playRound(playerSelection, computerSelection));
