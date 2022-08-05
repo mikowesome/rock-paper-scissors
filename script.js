@@ -14,7 +14,7 @@ function getComputerChoice() {
     }
     return choice.toLowerCase();
 }
-console.log(getComputerChoice());
+
 
 /*
 Write a function that plays a single round of Rock Paper Scissors.
@@ -31,26 +31,57 @@ function playRound(playerSelection, computerSelection) {
     if (x == 'rock' && y == 'scissors') {
         result = 'You win! Rock beats Scissors.';
     } else if (x == 'rock' && y == 'paper') {
-        result = 'You lose! Paper beats Rock';
+        result = 'You lose! Paper beats Rock.';
     } else if (x == 'rock' && y == 'rock') {
-        result = 'Draw. Play again'
+        result = 'Draw. Play again.'
     } else if (x == 'paper' && y =='rock') {
-        result = 'You win! Paper beats Rock'
+        result = 'You win! Paper beats Rock.'
     } else if (x == 'paper' && y == 'scissors') {
-        result = 'You lose! Scissors beats Paper';
+        result = 'You lose! Scissors beats Paper.';
     } else if (x == 'paper' && y == 'paper') {
         result = 'Draw. Play again';
     } else if (x == 'scissors' && y == 'rock') {
-        result = 'You lose! Rock beats Scissors';
+        result = 'You lose! Rock beats Scissors.';
     } else if (x == 'scissors' && y == 'paper') {
-        result = 'You win! Scissors beats Paper';
+        result = 'You win! Scissors beats Paper.';
     } else if (x == 'scissors' && y == 'scissors') {
-        result = 'Draw. Play again';
+        result = 'Draw. Play again.';
     }
 
     return result;
 }
-let playerSelection = 'rock';
-let computerSelection = getComputerChoice();
+// let playerSelection = prompt('Rock, Paper or Scissors?').toLowerCase();
+// let computerSelection = getComputerChoice();
 
-console.log(playRound(playerSelection, computerSelection));
+// console.log(playRound(playerSelection, computerSelection));
+
+// let score;
+// let playerScore = 0;
+// let computerScore = 0;
+// let win;
+// let lose;
+
+// if (playRound().includes('win') = true) {
+//     playerScore + 1;
+// } else if (playRound().includes('lose') = true) {
+//     computerScore = 1;
+// } 
+// score = `${playerScore}:${computerScore}`;
+// console.log(score);
+
+/*
+Write a NEW function called game().
+Call the playRound function inside of this one to play 5 round game
+that keeps score and reports a winner and a loser.
+*/
+
+function game() {
+    for (let i = 0; i < 5; i++) {
+        playerSelection = prompt('Rock, Paper or Scissors?').toLowerCase();
+        computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection));
+    }
+    
+
+}
+game();
