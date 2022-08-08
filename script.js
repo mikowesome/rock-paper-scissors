@@ -88,4 +88,3 @@ function game() {
     console.log(message);
 
 }
-game();

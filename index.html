@@ -3,9 +3,50 @@
     <head>
         <meta charset="utf-8">
         <title>Rock, Paper, Scissors</title>
+        <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
+        <div class="header">
+            <ul>
+                <li>Rock</li>
+                <li>Paper</li>
+                <li>Scissors</li>
+            </ul>
+        </div>
+
+        <div class="main-section">
+            <div class="upper-area">
+                <div id="game-rule">First to score 5 points wins</div>
+                <div class="game-section">
+                    <div class="player">
+                        <div id="player-choice"></div>
+                        <div id="player-score">Player:heart:</div>
+                    </div>
+                    <div class="computer">
+                        <div id="computer-choice"></div>
+                        <div id="computer-score">Computer:</div>
+                    </div>
+                </div>
+            </div>
+            <div class="lower-area">
+                <div class="buttons">
+                    <input type="image" src="images/rock.jpg" id="rock-btn"></input>
+                    <input type="image" src="images/paper.PNG" id="paper-btn"></input>
+                    <input type="image" src="images/scissors.jpg" id="scissors-btn"></input>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-container">
+                <div>created by mikowesome</div>
+
+            </div>
+            <div>This is a project in TheOdinProject Curriculum</div>
+        </div>
+
         <script src="script.js">
             // Hint: It is best practice to link an external .js file.
         </script>
