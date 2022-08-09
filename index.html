@@ -3,6 +3,17 @@
     <head>
         <meta charset="utf-8">
         <title>Rock, Paper, Scissors</title>
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+        <!-- Personal CSS -->
         <link rel="stylesheet" href="style.css">
     </head>
 
@@ -17,23 +28,28 @@
 
         <div class="main-section">
             <div class="upper-area">
-                <div id="game-rule">First to score 5 points wins</div>
+                <div id="display-result">Choose your weapon</div>
+                <div id="display-message">First to score 5 points wins</div>
                 <div class="game-section">
                     <div class="player">
-                        <div id="player-choice"></div>
-                        <div id="player-score">Player:heart:</div>
+                        <div>
+                            <img id="player-choice" src="images/question_mark.png" alt="unknown">
+                        </div>
+                        <div id="player-health">Player: 🤍🤍🤍🤍🤍</div>
                     </div>
                     <div class="computer">
-                        <div id="computer-choice"></div>
-                        <div id="computer-score">Computer:</div>
+                        <div>
+                            <img id="computer-choice" src="images/question_mark.png" alt="unknown">
+                        </div>
+                        <div id="computer-health">Computer: 🤍🤍🤍🤍🤍</div>
                     </div>
                 </div>
             </div>
             <div class="lower-area">
                 <div class="buttons">
-                    <input type="image" src="images/rock.jpg" id="rock-btn"></input>
-                    <input type="image" src="images/paper.PNG" id="paper-btn"></input>
-                    <input type="image" src="images/scissors.jpg" id="scissors-btn"></input>
+                    <input type="image" src="images/rock.jpg"  id="rock-btn" alt="rock"></input>
+                    <input type="image" src="images/paper.PNG"  id="paper-btn" alt="paper"></input>
+                    <input type="image" src="images/patrick.png"  id="scissors-btn" alt="scissors"></input>
                 </div>
 
             </div>

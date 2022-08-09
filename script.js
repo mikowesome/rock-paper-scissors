@@ -1,90 +1,110 @@
-/* Create a function called getComputerChoice that will randomly
-return either 'Rock', 'Paper', 'Scissors'
-*/
+let playerScore = 0;
+let computerScore = 0;
+let roundResult = "";
+
+// DOM
+const rockBtn = document.getElementById("rock-btn");
+const paperBtn = document.getElementById("paper-btn");
+const scissorsBtn = document.getElementById("scissors-btn");
+const displayMessage = document.getElementById("display-message");
+const displayResult = document.getElementById("display-result");
+const buttons = document.getElementById("buttons");
+const playerHealth = document.getElementById("player-health");
+const computerHealth = document.getElementById("computer-health");
+const playerChoice = document.querySelector("#player-choice");
+const computerChoice = document.querySelector("#computer-choice");
+
+// Events
+rockBtn.addEventListener('click', () => clickButton('rock'));
+paperBtn.addEventListener('click', () => clickButton('paper'));
+scissorsBtn.addEventListener('click', () => clickButton('scissors'));
+
 
 function getComputerChoice() {
-    let x = Math.floor(Math.random()*3);
-    let choice;
-    if (x === 0) {
-        choice = 'Rock';
-    } else if (x === 1) {
-        choice = 'Paper';
+    let num = Math.floor(Math.random()*3);
+    if (num === 0) {
+        return 'rock';
+    } else if (num === 1) {
+        return 'paper';
     } else {
-        choice = 'Scissors';
+        return 'scissors';
     }
-    return choice.toLowerCase();
 }
-
-
-/*
-Write a function that plays a single round of Rock Paper Scissors.
-The function should take two parameters - the playerSelection
-and computerSelection
-and then return a string that declares the winner of the round
-like so: "You lose! Paper beats Rock"
-*/
 
 function playRound(playerSelection, computerSelection) {
-    let x = playerSelection;
-    let y = computerSelection;
-    let result;
-    if (x == 'rock' && y == 'scissors') {
-        result = 'You win! Rock beats Scissors.';
-    } else if (x == 'rock' && y == 'paper') {
-        result = 'You lose! Paper beats Rock.';
-    } else if (x == 'rock' && y == 'rock') {
-        result = 'Draw. Play again.'
-    } else if (x == 'paper' && y =='rock') {
-        result = 'You win! Paper beats Rock.'
-    } else if (x == 'paper' && y == 'scissors') {
-        result = 'You lose! Scissors beats Paper.';
-    } else if (x == 'paper' && y == 'paper') {
-        result = 'Draw. Play again';
-    } else if (x == 'scissors' && y == 'rock') {
-        result = 'You lose! Rock beats Scissors.';
-    } else if (x == 'scissors' && y == 'paper') {
-        result = 'You win! Scissors beats Paper.';
-    } else if (x == 'scissors' && y == 'scissors') {
-        result = 'Draw. Play again.';
+    if (playerSelection === computerSelection) {
+        roundResult = "draw";
+    } else if ((playerSelection === 'rock' && computerSelection === 'paper') ||
+        (playerSelection === 'paper' && computerSelection === 'scissors') || 
+        (playerSelection === 'scissors' && computerSelection === 'rock')) {
+        computerScore++;
+        roundResult = "computer";
+    } else if ((playerSelection === 'rock' && computerSelection === 'scissors') ||
+        (playerSelection === 'paper' && computerSelection === 'rock') || 
+        (playerSelection === 'scissors' && computerSelection === 'paper')) {
+     // computerHealth.textContent = computerHealth.slice(0,(computerHealth.length - 1));
+        playerScore++;
+        roundResult = "player";
     }
-
-    return result;
+    updateRoundMessage(roundResult, playerSelection, computerSelection);
+    
 }
-// let playerSelection = prompt('Rock, Paper or Scissors?').toLowerCase();
-// let computerSelection = getComputerChoice();
-
-// console.log(playRound(playerSelection, computerSelection));
-
-
-/*
-Write a NEW function called game().
-Call the playRound function inside of this one to play 5 round game
-that keeps score and reports a winner and a loser.
-*/
-
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-    for (let i = 0; i < 5; i++) {
-        playerSelection = prompt('Rock, Paper or Scissors?').toLowerCase();
-        computerSelection = getComputerChoice();
-        result = playRound(playerSelection, computerSelection);
-        if (result.includes('win')) {
-            playerScore = ++playerScore;
-        } else if (result.includes('lose')) {
-            computerScore = ++computerScore;
-        }
-        score = `${playerScore}:${computerScore}`;
-        console.log(playRound(playerSelection, computerSelection));
-        console.log(score);
-    }
-    if (playerScore > computerScore) {
-        message = 'You win!';
-    } else if (playerScore < computerScore) {
-        message = 'You lose!';
-    } else {
-        message = "It's a tie.";
-    }
-    console.log(message);
+function clickButton(playerSelection) {
+    let computerSelection = getComputerChoice();
+    playRound(playerSelection, computerSelection);
+    displayChoice(playerChoice, computerChoice);
+    updateRound();
+    console.log(playerScore, computerScore);
 
 }
+
+function updateRound() {
+    if (roundResult === 'draw') {
+        displayResult.textContent = "It's a draw!";
+    } else if (roundResult === 'computer') {
+        displayResult.textContent = 'You lost!';
+    } else if (roundResult === 'player') {
+        displayResult.textContent = 'You won!';
+    }
+}
+
+function updateRoundMessage(roundResult, playerSelection, computerSelection) {
+    if (roundResult ==='draw') {
+        displayMessage.textContent = `${playerSelection} draws with ${computerSelection}`;
+    } else if (roundResult === 'computer') {
+        displayMessage.textContent = `${playerSelection} is beaten by ${computerSelection}`;
+    } else if (roundResult === 'player') {
+        displayMessage.textContent = `${playerSelection} beats ${computerSelection}`;
+    }
+}
+
+function displayChoice(playerSelection, computerSelection) {
+    switch (playerSelection) {
+        case "rock":
+            playerChoice.src = "images/rock.jpg";
+            break;
+        case "paper":
+            playerChoice.src = "images/paper.png";
+            break;
+        case "scissors":
+            playerChoice.src = "images/patrick.png";
+            break;
+    }
+
+    switch (computerSelection) {
+        case "rock":
+            computerChoice.src = "images/rock.jpg";
+            break;
+        case "rock":
+            computerChoice.src = "images/paper.png";
+            break;
+        case "rock":
+            computerChoice.src = "images/patrick.png";
+            break;
+    }
+    
+}
+// displayMessage.textContent = `${playerSelection} beats ${computerSelection}`
+// displayMessage.textContent = `${playerSelection} is beaten by ${computerSelection}`
+// displayMessage.textContent = `${playerSelection} draws with ${computerSelection}`
+
