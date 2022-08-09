@@ -76,6 +76,10 @@ body {
     flex-direction: column;
 }
 
+#player-health, #computer-health {
+    text-align: center;
+}
+
 .lower-area {
     height: 40%;
     display: flex;
