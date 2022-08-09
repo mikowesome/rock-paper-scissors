@@ -59,7 +59,7 @@ function clickButton(playerSelection) {
     playRound(playerSelection, computerSelection);
     displayChoice(playerChoice, computerChoice);
     updateRound();
-    console.log(playerScore, computerScore);
+    displayChoice(playerSelection, computerSelection);
 
     if (endGame()) {
         endGameMessage();
@@ -105,10 +105,10 @@ function displayChoice(playerSelection, computerSelection) {
         case "rock":
             computerChoice.src = "images/rock.jpg";
             break;
-        case "rock":
+        case "paper":
             computerChoice.src = "images/paper.png";
             break;
-        case "rock":
+        case "scissors":
             computerChoice.src = "images/patrick.png";
             break;
     }
