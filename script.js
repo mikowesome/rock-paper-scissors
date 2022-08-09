@@ -50,12 +50,20 @@ function playRound(playerSelection, computerSelection) {
     
 }
 function clickButton(playerSelection) {
+    if (endGame()) {
+        endGameMessage();
+        return
+    }
+
     let computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
     displayChoice(playerChoice, computerChoice);
     updateRound();
     console.log(playerScore, computerScore);
 
+    if (endGame()) {
+        endGameMessage();
+    }
 }
 
 function updateRound() {
@@ -66,6 +74,8 @@ function updateRound() {
     } else if (roundResult === 'player') {
         displayResult.textContent = 'You won!';
     }
+    playerHealth.textContent = `Player: ${playerScore}`;
+    computerHealth.textContent = `Computer: ${computerScore}`;
 }
 
 function updateRoundMessage(roundResult, playerSelection, computerSelection) {
@@ -103,6 +113,20 @@ function displayChoice(playerSelection, computerSelection) {
             break;
     }
     
+}
+
+function endGame() {
+    return playerScore === 5 || computerScore === 5;
+}
+
+function endGameMessage() {
+    if (playerScore > computerScore) {
+        displayResult.textContent = "You won the game. Congratulations!"
+        displayMessage.textContent = "Please refresh the page to play again."
+    } else {
+        displayResult.textContent = "Sorry, you lost."
+        displayMessage.textContent = "Please refresh the page to play again."
+    }
 }
 // displayMessage.textContent = `${playerSelection} beats ${computerSelection}`
 // displayMessage.textContent = `${playerSelection} is beaten by ${computerSelection}`
