@@ -56,10 +56,11 @@ function clickButton(playerSelection) {
     }
 
     let computerSelection = getComputerChoice();
+    removeChoiceEffect(roundResult);
     playRound(playerSelection, computerSelection);
-    displayChoice(playerChoice, computerChoice);
     updateRound();
     displayChoice(playerSelection, computerSelection);
+    displayChoiceEffect(roundResult);
 
     if (endGame()) {
         endGameMessage();
@@ -113,6 +114,32 @@ function displayChoice(playerSelection, computerSelection) {
             break;
     }
     
+}
+
+function displayChoiceEffect(roundResult) {
+    switch(roundResult) {
+        case "player":
+            playerChoice.classList.add('win');
+            computerChoice.classList.add('lose');
+            break;
+        case "computer":
+            playerChoice.classList.add('lose');
+            computerChoice.classList.add('win');
+            break;
+        case "draw":
+            playerChoice.classList.add('draw');
+            computerChoice.classList.add('draw');
+            break;
+    }
+}
+
+function removeChoiceEffect() {
+    playerChoice.classList.remove('win');
+    playerChoice.classList.remove('lose');
+    playerChoice.classList.remove('draw');
+    computerChoice.classList.remove('win');
+    computerChoice.classList.remove('lose');
+    computerChoice.classList.remove('draw');
 }
 
 function endGame() {
