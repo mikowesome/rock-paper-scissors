@@ -62,7 +62,7 @@ body {
     width: 200px;
     border: 4px solid #2C3333;
     border-radius: 8px;
-    transition: all 0.07s;
+    transition: all 0.1s;
 }
 
 #computer-choice {
@@ -74,21 +74,25 @@ body {
 }
 
 .win {
-    transform: scale(1,1);
+    transform: scale(1.2);
     border-color: #A5E1AD;
     box-shadow: 1px 1px 2rem 1rem #A5E1AD;
 }
 
 .lose {
-    transform: scale(1,1);
+    transform: scale(1.0);
     border-color: #E94560;
     box-shadow: 1px 1px 2rem 1rem #E94560;
 }
 
 .draw {
-    transform: scale(1,1);
+    transform: scale(1.0);
     border-color: #9BA4B4;
     box-shadow: 1px 1px 2rem 1rem #9BA4B4;
+}
+
+.player {
+    padding-right: 24px;
 }
 
 .player, .computer {
@@ -97,7 +101,9 @@ body {
 }
 
 #player-health, #computer-health {
+    margin-top: 30px;
     text-align: center;
+    font-size: 24px;
 }
 
 .lower-area {
@@ -136,10 +142,4 @@ body {
     justify-content: center;
     color: #E7F6F2;
     margin: 10px 16px;
-}
-
-.playing {
-    transform: scale(1.1);
-    border-color: #BBE1FA;
-    box-shadow: 0 0 1rem #BBE1FA;
 }
