@@ -62,6 +62,7 @@ body {
     width: 200px;
     border: 4px solid #2C3333;
     border-radius: 8px;
+    transition: all 0.07s;
 }
 
 #computer-choice {
@@ -69,6 +70,25 @@ body {
     width: 200px;
     border: 4px solid #2C3333;
     border-radius: 8px;
+    transition: all 0.07s;
+}
+
+.win {
+    transform: scale(1,1);
+    border-color: #A5E1AD;
+    box-shadow: 1px 1px 2rem 1rem #A5E1AD;
+}
+
+.lose {
+    transform: scale(1,1);
+    border-color: #E94560;
+    box-shadow: 1px 1px 2rem 1rem #E94560;
+}
+
+.draw {
+    transform: scale(1,1);
+    border-color: #9BA4B4;
+    box-shadow: 1px 1px 2rem 1rem #9BA4B4;
 }
 
 .player, .computer {
